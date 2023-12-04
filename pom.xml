@@ -34,7 +34,7 @@ limitations under the License.
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.kcache</groupId>
     <artifactId>kcache-bdb-je</artifactId>
-    <version>18.3.17-SNAPSHOT</version>
+    <version>18.3.16-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <profiles>
