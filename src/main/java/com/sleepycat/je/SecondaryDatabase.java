@@ -13,6 +13,7 @@
 
 package com.sleepycat.je;
 
+import com.sleepycat.je.ExtinctionFilter.ExtinctionStatus;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -1467,6 +1468,8 @@ public class SecondaryDatabase extends Database {
             !getEnv().expiresWithin(
                 oldExpirationTime, getEnv().getTtlClockTolerance())) {
 
+            // NOTE: the following exception has been changed to a warning
+            /*
             throw new SecondaryIntegrityException(
                 this, secCursor.getCursorImpl().getLocker(),
                 "Secondary is corrupt: the primary record contains a key " +
@@ -1474,6 +1477,20 @@ public class SecondaryDatabase extends Database {
                 getDatabaseName(), priDb.getName(), oldSecKey, priKey,
                 CursorImpl.getCurrentLsn(priCursor), oldExpirationTime,
                 EnvironmentImpl.getExtinctionStatus(priDb, priKey));
+            */
+
+            long priLsn = CursorImpl.getCurrentLsn(priCursor);
+            ExtinctionStatus extinctionStatus = EnvironmentImpl.getExtinctionStatus(priDb, priKey);
+            String errInfo = "secDbName=" + getDatabaseName() +
+                " priDbName=" + priDb.getName() +
+                " expiration=" + ((oldExpirationTime != 0) ?
+                TTL.formatExpirationTime(oldExpirationTime) : "none") +
+                ((extinctionStatus != null) ? (" " + extinctionStatus) : "") +
+                " priLsn=" + DbLsn.getNoFormatString(priLsn);
+
+            LoggerUtils.logMsg(logger, getEnv(), Level.WARNING,
+                "Secondary is corrupt: the primary record contains a key " +
+                    "that is not present in the secondary " + errInfo);
         }
     }
 
