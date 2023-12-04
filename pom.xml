@@ -32,6 +32,12 @@ limitations under the License.
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <name>Robert Yokota</name>
+            <email>rayokota@gmail.com</email>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:git://github.com:rayokota/kcache-bdb-je.git</connection>
