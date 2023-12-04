@@ -20,7 +20,7 @@ limitations under the License.
 
     <groupId>io.kcache</groupId>
     <artifactId>bdb-je</artifactId>
-    <version>18.3.19</version>
+    <version>18.3.20-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>bdb-je</name>
@@ -43,7 +43,7 @@ limitations under the License.
         <connection>scm:git:git://github.com:rayokota/bdb-je.git</connection>
         <developerConnection>scm:git:git@github.com:rayokota/bdb-je.git</developerConnection>
         <url>git@github.com:rayokota/bdb-je.git</url>
-        <tag>bdb-je-18.3.19</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
