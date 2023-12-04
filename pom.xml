@@ -21,7 +21,7 @@ limitations under the License.
     <groupId>io.kcache</groupId>
     <artifactId>bdb-je</artifactId>
     <version>18.3.19-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>bdb-je</name>
     <description>bdb je</description>
