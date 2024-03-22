@@ -83,9 +83,12 @@ public class SecondaryIntegrityException extends SecondaryReferenceException {
         super(locker, message, secDbName, priDbName, secKey, priKey,
             priLsn, expirationTime, extinctionStatus);
 
+        // NOTE: the following code has been elided
+        /*
         if (secDb != null) {
             secDb.setCorrupted(this);
         }
+        */
     }
 
     /** 
